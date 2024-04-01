@@ -1,5 +1,5 @@
 # Pin-Shot
-It's a simple game that I created on Unity for get experience. 
+It's a simple game I created in Unity to gain experience.
 In this game, you just need to touch the screen or press Space, and shoot a pin into a rotating circle. 
 If the pin collides with another pin, you lose.
 
