@@ -13,9 +13,13 @@ public class Pin : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if(!isPinned)rb.MovePosition(rb.position + Vector2.up * speed * Time.deltaTime); //move the pin up
+        if (!isPinned)
+        {
+            // Use FixedUpdate and Time.fixedDeltaTime for consistent movement
+            rb.MovePosition(rb.position + Vector2.up * speed * Time.fixedDeltaTime); // Move the pin up
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
