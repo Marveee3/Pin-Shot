@@ -6,18 +6,24 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public static int pinCount;
-    private Text text;
+    private Text scoreText;
+    [SerializeField]private Text highScoreText;
 
     void Start()
     {   
-        text = GetComponent<Text>();
+        scoreText = GetComponent<Text>();
         pinCount = 0;
+        highScoreText.text = "High score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
     // Update is called once per frame
-void Update()
-{
-    text.text = pinCount.ToString();
-}
+    void Update()
+    {
+        scoreText.text = pinCount.ToString();
+        if(pinCount > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", pinCount);
+        }
+    }
 
 }
